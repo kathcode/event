@@ -9,6 +9,7 @@ import CategoryItem from '../CategoryItem';
 
 // Shared components
 import Search from '../../../shared/components/search/Search';
+import Card from '../../../shared/components/card/Card';
 
 // Styled
 import styles from './categoryList.styled';
@@ -16,11 +17,11 @@ import styles from './categoryList.styled';
 const CategoryList = () => {
   return (
     <View style={styles.container}>
-      <FlatList
-        data={categories}
-        renderItem={CategoryItem}
-        keyExtractor={(item) => item.key}
-      />
+      <View style={styles.cardContainer}>
+        {categories.map((category) => (
+          <Card text={category.name} />
+        ))}
+      </View>
       <Search />
     </View>
   );
