@@ -63,9 +63,9 @@ export const getCategoriesById = [
   {
     key: Math.random().toString(),
     categoryId: 2,
-    iconMaterial: 'book',
-    iconMaterialCommunity: '',
-    name: 'Workshop with React for beginners',
+    iconMaterial: '',
+    iconMaterialCommunity: 'telescope',
+    name: "Let's watch the universe",
     description: 'description...',
   },
   {
@@ -82,6 +82,22 @@ export const getCategoriesById = [
     iconMaterial: '',
     iconMaterialCommunity: 'pizza',
     name: 'Master pizza',
+    description: 'description...',
+  },
+  {
+    key: Math.random().toString(),
+    categoryId: 3,
+    iconMaterial: '',
+    iconMaterialCommunity: 'dumbbell',
+    name: 'Workout morning',
+    description: 'description...',
+  },
+  {
+    key: Math.random().toString(),
+    categoryId: 2,
+    iconMaterial: 'book',
+    iconMaterialCommunity: '',
+    name: 'Workshop with React for beginners',
     description: 'description...',
   },
 ];

@@ -10,7 +10,6 @@ import Logo from './shared/components/logo/Logo';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Logo />
       <CategoryList />
     </View>
   );
