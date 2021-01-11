@@ -1,29 +1,38 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, ScrollView, Text } from 'react-native';
 
 // Constants
-import { categories } from '../../../api/categoryList';
-
-// Components
-import CategoryItem from '../CategoryItem';
+import { categories, getCategoriesById } from '../../../api/categoryList';
 
 // Shared components
 import Search from '../../../shared/components/search/Search';
 import Card from '../../../shared/components/card/Card';
+import ListItem from '../../../shared/components/listItem/ListItem';
+import ViewTitle from '../../../shared/components/viewTitle/ViewTitle';
 
 // Styled
 import styles from './categoryList.styled';
 
 const CategoryList = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.cardContainer}>
-        {categories.map((category) => (
-          <Card text={category.name} />
-        ))}
+    <ScrollView>
+      <View style={styles.container}>
+        <ViewTitle title="Categories" />
+        <View style={styles.cardContainer}>
+          {categories.map((category) => (
+            <Card key={category.id} itemData={category} />
+          ))}
+        </View>
+        <Search />
+        <View style={styles.containerList}>
+          <FlatList
+            data={getCategoriesById}
+            renderItem={ListItem}
+            keyExtractor={(item) => item.key}
+          />
+        </View>
       </View>
-      <Search />
-    </View>
+    </ScrollView>
   );
 };
 

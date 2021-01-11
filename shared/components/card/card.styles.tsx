@@ -2,16 +2,19 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor: '#1D8A99',
     margin: 5,
     padding: 10,
     width: 100,
     height: 100,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 10,
   },
   text: {
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#333',
+    textAlign: 'center',
   },
 });
