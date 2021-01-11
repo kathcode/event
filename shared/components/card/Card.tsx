@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 // Models
-import { ICard } from '../../models/card';
+import { ICardData } from '../../models/card';
 
 // Shared Components
 import Icon from '../icon/Icon';
@@ -12,6 +12,7 @@ import Icon from '../icon/Icon';
 import styles from './card.styles';
 
 const Card = ({
+  color = 'black',
   itemData: { iconMaterialCommunity, iconMaterial, name },
 }: IPops) => {
   return (
@@ -19,6 +20,8 @@ const Card = ({
       <Icon
         iconMaterial={iconMaterial}
         iconMaterialCommunity={iconMaterialCommunity}
+        color={color}
+        size={40}
       />
       <Text style={styles.text}>{name}</Text>
     </View>
@@ -27,5 +30,6 @@ const Card = ({
 
 export default Card;
 export interface IPops {
-  itemData: ICard;
+  itemData: ICardData;
+  color: string;
 }

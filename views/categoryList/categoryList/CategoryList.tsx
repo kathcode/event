@@ -20,10 +20,12 @@ const CategoryList = () => {
         <ViewTitle title="Categories" />
         <View style={styles.cardContainer}>
           {categories.map((category) => (
-            <Card key={category.id} itemData={category} />
+            <Card key={category.id} itemData={category} color="#1D8A99" />
           ))}
         </View>
-        <Search />
+        <View style={styles.containerSearch}>
+          <Search />
+        </View>
         <View style={styles.containerList}>
           <FlatList
             data={getCategoriesById}

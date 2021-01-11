@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    padding: 10,
     backgroundColor: '#eee',
   },
   cardContainer: {
@@ -10,8 +9,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',
+    backgroundColor: '#1D8A99',
+    padding: 40,
+  },
+  containerSearch: {
+    marginTop: -45,
+    padding: 10,
   },
   containerList: {
-    paddingTop: 10,
+    padding: 10,
   },
 });

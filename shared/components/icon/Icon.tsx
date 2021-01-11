@@ -10,14 +10,20 @@ const Icon = ({
   iconMaterialCommunity,
   color = 'black',
   style = {},
+  size = 25,
 }: IIcon) => {
   const iconMat = (
-    <MaterialIcons name={iconMaterial} size={25} color={color} style={style} />
+    <MaterialIcons
+      name={iconMaterial}
+      size={size}
+      color={color}
+      style={style}
+    />
   );
   const iconMatComm = (
     <MaterialCommunityIcons
       name={iconMaterialCommunity}
-      size={25}
+      size={size}
       color={color}
       style={style}
     />

@@ -3,4 +3,5 @@ export interface IIcon {
   iconMaterialCommunity?: string;
   color?: string;
   style?: Object;
+  size?: number;
 }

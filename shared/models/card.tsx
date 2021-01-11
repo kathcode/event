@@ -1,6 +1,6 @@
 import { IIcon } from './generalComponents';
 
-export interface ICard {
+export interface ICardData {
   name: string;
   key?: string;
   id?: number;

@@ -39,7 +39,7 @@ const ListItem = ({
       />
       <View>
         <Text style={styles.title}>{name}</Text>
-        <Text>{description}--</Text>
+        <Text>{description}</Text>
       </View>
     </View>
   );
