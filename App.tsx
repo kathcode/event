@@ -1,17 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 // Views
 import CategoryList from './views/categoryList/categoryList/CategoryList';
 
-// Shared component
-import Logo from './shared/components/logo/Logo';
+// Theme
+import { theme } from './app.theme';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <CategoryList />
-    </View>
+    <PaperProvider theme={theme}>
+      <View style={styles.container}>
+        <CategoryList />
+      </View>
+    </PaperProvider>
   );
 }
 
