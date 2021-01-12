@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Title, Paragraph } from 'react-native-paper';
+import MapView from 'react-native-maps';
 
 import styles from './eventDetail.styles';
 
@@ -22,6 +23,17 @@ const EventDetail = () => {
           expedita voluptate repudiandae? Minus soluta harum fuga quas, nam aut
           officia.
         </Paragraph>
+
+        <Title>Location:</Title>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
       </View>
     </View>
   );
