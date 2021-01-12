@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    padding: 10,
-  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#1D8A99',
+    paddingBottom: 30,
+    paddingTop: 30,
   },
   icon: {
     backgroundColor: '#fff',
@@ -14,7 +14,10 @@ export default StyleSheet.create({
     margin: 20,
   },
   containerSearch: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    marginTop: -45,
+    padding: 10,
+  },
+  containerList: {
+    padding: 10,
   },
 });

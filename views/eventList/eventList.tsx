@@ -24,7 +24,7 @@ const EventList = ({
   navigation,
 }: IPops) => {
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.header}>
         <Icon
           style={styles.icon}
@@ -42,13 +42,15 @@ const EventList = ({
         <Search />
       </View>
 
-      <FlatList
-        data={getCategoriesById}
-        renderItem={(item) => (
-          <ListItem item={item.item} navigation={navigation} />
-        )}
-        keyExtractor={(item) => item.key}
-      />
+      <View style={styles.containerList}>
+        <FlatList
+          data={getCategoriesById}
+          renderItem={(item) => (
+            <ListItem item={item.item} navigation={navigation} />
+          )}
+          keyExtractor={(item) => item.key}
+        />
+      </View>
     </View>
   );
 };

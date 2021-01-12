@@ -29,9 +29,9 @@ export const categories = [
   },
   {
     id: 5,
-    name: 'Games',
+    name: 'Favorite',
     description: 'description...',
-    iconMaterial: 'videogame-asset',
+    iconMaterial: 'favorite',
     iconMaterialCommunity: '',
   },
   {
