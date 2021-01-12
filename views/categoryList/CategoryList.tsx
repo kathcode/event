@@ -1,26 +1,29 @@
 import React from 'react';
-import { View, FlatList, ScrollView, Text } from 'react-native';
+import { View, FlatList, ScrollView, Button } from 'react-native';
 
 // Constants
-import { categories, getCategoriesById } from '../../../api/categoryList';
+import { categories, getCategoriesById } from '../../api/categoryList';
 
 // Shared components
-import Search from '../../../shared/components/search/Search';
-import Card from '../../../shared/components/card/Card';
-import ListItem from '../../../shared/components/listItem/ListItem';
-import ViewTitle from '../../../shared/components/viewTitle/ViewTitle';
+import Search from '../../shared/components/search/Search';
+import Card from '../../shared/components/card/Card';
+import ListItem from '../../shared/components/listItem/ListItem';
 
 // Styled
 import styles from './categoryList.styled';
 
-const CategoryList = () => {
+const CategoryList = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <ViewTitle title="Categories" />
         <View style={styles.cardContainer}>
           {categories.map((category) => (
-            <Card key={category.id} itemData={category} color="#1D8A99" />
+            <Card
+              navigation={navigation}
+              key={category.id}
+              itemData={category}
+              color="#1D8A99"
+            />
           ))}
         </View>
         <View style={styles.containerSearch}>
