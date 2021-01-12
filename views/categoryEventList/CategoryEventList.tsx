@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, ScrollView, Button } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 
 // Constants
 import { categories, getCategoriesById } from '../../api/categoryList';
@@ -10,16 +10,16 @@ import Card from '../../shared/components/card/Card';
 import ListItem from '../../shared/components/listItem/ListItem';
 
 // Styled
-import styles from './categoryList.styled';
+import styles from './categoryEventList.styled';
 
-const CategoryList = ({ navigation }) => {
+const CategoryEventList = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.cardContainer}>
           {categories.map((category) => (
             <Card
-              navigation={navigation}
+              onPress={() => navigation.navigate('Events')}
               key={category.id}
               itemData={category}
               color="#1D8A99"
@@ -32,7 +32,9 @@ const CategoryList = ({ navigation }) => {
         <View style={styles.containerList}>
           <FlatList
             data={getCategoriesById}
-            renderItem={ListItem}
+            renderItem={(item) => (
+              <ListItem item={item.item} navigation={navigation} />
+            )}
             keyExtractor={(item) => item.key}
           />
         </View>
@@ -41,4 +43,4 @@ const CategoryList = ({ navigation }) => {
   );
 };
 
-export default CategoryList;
+export default CategoryEventList;

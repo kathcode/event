@@ -16,10 +16,10 @@ import styles from './card.styles';
 const Card = ({
   color = 'black',
   itemData: { iconMaterialCommunity, iconMaterial, name, id },
-  navigation,
+  onPress,
 }: IPops) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Category Detail')}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <Icon
           iconMaterial={iconMaterial}
@@ -38,5 +38,5 @@ export default Card;
 export interface IPops {
   itemData: ICardData;
   color: string;
-  navigation: { navigate: (arg: string) => {} };
+  onPress: Function;
 }

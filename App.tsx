@@ -1,13 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Views
-import CategoryList from './views/categoryList/CategoryList';
-import CategoryDetail from './views/categoryDetail/CategoryDetail';
+import CategoryEventList from './views/categoryEventList/CategoryEventList';
+import EventList from './views/eventList/eventList';
+import EventDetail from './views/eventDetail/EventDetail';
 
 // Theme
 import { theme } from './app.theme';
@@ -19,8 +20,9 @@ export default function App() {
     <PaperProvider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Category" component={CategoryList} />
-          <Stack.Screen name="Category Detail" component={CategoryDetail} />
+          <Stack.Screen name="Categories" component={CategoryEventList} />
+          <Stack.Screen name="Events" component={EventList} />
+          <Stack.Screen name="Event detail" component={EventDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

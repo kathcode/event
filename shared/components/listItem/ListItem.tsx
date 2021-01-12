@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, _View } from 'react-native';
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Text, View, TouchableOpacity } from 'react-native';
 
 // Shared
 import { ICategoryListItem } from '../../../shared/models/categoryList';
@@ -11,41 +10,28 @@ import Icon from '../icon/Icon';
 // Styled
 import styles from './listItem.styles';
 
-const ListItem = ({
-  item: { name, description, iconMaterial, iconMaterialCommunity },
-}: IPops) => {
-  const iconMat = (
-    <MaterialIcons
-      name={iconMaterial}
-      size={25}
-      color="#1D8A99"
-      style={styles.icon}
-    />
-  );
-  const iconMatComm = (
-    <MaterialCommunityIcons
-      name={iconMaterialCommunity}
-      size={24}
-      color="black"
-    />
-  );
+const ListItem = ({ item, navigation }: IPops) => {
+  console.log(navigation);
   return (
-    <View style={styles.container}>
-      <Icon
-        iconMaterial={iconMaterial}
-        iconMaterialCommunity={iconMaterialCommunity}
-        style={styles.icon}
-        color="#1D8A99"
-      />
-      <View>
-        <Text style={styles.title}>{name}</Text>
-        <Text>{description}</Text>
+    <TouchableOpacity onPress={() => navigation.navigate('Event detail')}>
+      <View style={styles.container}>
+        <Icon
+          iconMaterial={item.iconMaterial}
+          iconMaterialCommunity={item.iconMaterialCommunity}
+          style={styles.icon}
+          color="#1D8A99"
+        />
+        <View>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text>{item.description}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 export default ListItem;
 export interface IPops {
   item: ICategoryListItem;
+  navigation: any;
 }

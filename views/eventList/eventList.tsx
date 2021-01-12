@@ -14,13 +14,14 @@ import Icon from '../../shared/components/icon/Icon';
 import Search from '../../shared/components/search/Search';
 
 // Styles
-import styles from './categoryDetail.styled';
+import styles from './eventList.styled';
 
-const CategoryDetail = ({
+const EventList = ({
   icon,
   name,
   description,
   items = getCategoriesById,
+  navigation,
 }: IPops) => {
   return (
     <View style={styles.container}>
@@ -42,19 +43,22 @@ const CategoryDetail = ({
       </View>
 
       <FlatList
-        data={[items[3], items[3], items[3], items[3]]}
-        renderItem={ListItem}
+        data={getCategoriesById}
+        renderItem={(item) => (
+          <ListItem item={item.item} navigation={navigation} />
+        )}
         keyExtractor={(item) => item.key}
       />
     </View>
   );
 };
 
-export default CategoryDetail;
+export default EventList;
 
 export interface IPops {
   icon: string;
   name: string;
   description: string;
   items: ICategoryListItem[];
+  navigation: any;
 }

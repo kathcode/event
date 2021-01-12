@@ -4,4 +4,5 @@ export interface ICategoryListItem {
   description: string;
   iconMaterial?: string;
   iconMaterialCommunity?: string;
+  categoryId?: number;
 }
