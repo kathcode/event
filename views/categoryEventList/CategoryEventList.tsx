@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, FlatList, ScrollView } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 // Constants
 import { categories, getCategoriesById } from '../../api/categoryList';
@@ -9,27 +10,33 @@ import Search from '../../shared/components/search/Search';
 import Card from '../../shared/components/card/Card';
 import ListItem from '../../shared/components/listItem/ListItem';
 
-// Styled
-import styles from './categoryEventList.styled';
+// Styled components
+import {
+  Container,
+  CardContainer,
+  SearchContainer,
+  ListContainer,
+} from './categoryEventList.styled';
 
 const CategoryEventList = ({ navigation }) => {
+  const { colors } = useTheme();
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.cardContainer}>
+      <Container>
+        <CardContainer bgColor={colors.primary}>
           {categories.map((category) => (
             <Card
               onPress={() => navigation.navigate('Events')}
               key={category.id}
               itemData={category}
-              color="#1D8A99"
+              color="#38a9ba"
             />
           ))}
-        </View>
-        <View style={styles.containerSearch}>
+        </CardContainer>
+        <SearchContainer>
           <Search />
-        </View>
-        <View style={styles.containerList}>
+        </SearchContainer>
+        <ListContainer>
           <FlatList
             data={getCategoriesById}
             renderItem={(item) => (
@@ -37,8 +44,8 @@ const CategoryEventList = ({ navigation }) => {
             )}
             keyExtractor={(item) => item.key}
           />
-        </View>
-      </View>
+        </ListContainer>
+      </Container>
     </ScrollView>
   );
 };

@@ -11,7 +11,7 @@ import { ICardData } from '../../models/card';
 import Icon from '../icon/Icon';
 
 // Styled
-import styles from './card.styles';
+import { Container, TextStyled } from './card.styled';
 
 const Card = ({
   color = 'black',
@@ -20,15 +20,15 @@ const Card = ({
 }: IPops) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
+      <Container>
         <Icon
           iconMaterial={iconMaterial}
           iconMaterialCommunity={iconMaterialCommunity}
           color={color}
           size={40}
         />
-        <Text style={styles.text}>{name}</Text>
-      </View>
+        <TextStyled>{name}</TextStyled>
+      </Container>
     </TouchableOpacity>
   );
 };

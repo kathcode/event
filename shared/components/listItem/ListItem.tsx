@@ -4,28 +4,23 @@ import { Text, View, TouchableOpacity } from 'react-native';
 // Shared
 import { ICategoryListItem } from '../../../shared/models/categoryList';
 
-// Shared Components
-import Icon from '../icon/Icon';
-
 // Styled
-import styles from './listItem.styles';
+import { Container, TitleStyled, IconStyled } from './listItem.styled';
 
 const ListItem = ({ item, navigation }: IPops) => {
-  console.log(navigation);
   return (
     <TouchableOpacity onPress={() => navigation.navigate('Event detail')}>
-      <View style={styles.container}>
-        <Icon
+      <Container>
+        <IconStyled
           iconMaterial={item.iconMaterial}
           iconMaterialCommunity={item.iconMaterialCommunity}
-          style={styles.icon}
-          color="#1D8A99"
+          color="#38a9ba"
         />
         <View>
-          <Text style={styles.title}>{item.name}</Text>
+          <TitleStyled>{item.name}</TitleStyled>
           <Text>{item.description}</Text>
         </View>
-      </View>
+      </Container>
     </TouchableOpacity>
   );
 };

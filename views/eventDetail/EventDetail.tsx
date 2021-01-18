@@ -1,15 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Title, Paragraph } from 'react-native-paper';
-import MapView from 'react-native-maps';
 
-import styles from './eventDetail.styles';
+// Styled components
+import { Header, Description, Map } from './eventDetail.styled';
 
 const EventDetail = () => {
   return (
     <View>
-      <Title style={styles.header}>Hiking in the mountain</Title>
-      <View style={styles.container}>
+      <Header>Hiking in the mountain</Header>
+      <Description>
         <Paragraph>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis ex
           perspiciatis nobis doloribus unde quo sapiente totam nulla aliquid,
@@ -25,8 +25,7 @@ const EventDetail = () => {
         </Paragraph>
 
         <Title>Location:</Title>
-        <MapView
-          style={styles.map}
+        <Map
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
@@ -34,7 +33,7 @@ const EventDetail = () => {
             longitudeDelta: 0.0421,
           }}
         />
-      </View>
+      </Description>
     </View>
   );
 };

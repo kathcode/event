@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
-import { Title } from 'react-native-paper';
+import { View, FlatList, Text, ScrollView } from 'react-native';
+import { Title, useTheme } from 'react-native-paper';
 
 // Constants
 import { getCategoriesById } from '../../api/categoryList';
@@ -10,48 +10,49 @@ import { ICategoryListItem } from '../../shared/models/categoryList';
 
 // Shared components
 import ListItem from '../../shared/components/listItem/ListItem';
-import Icon from '../../shared/components/icon/Icon';
 import Search from '../../shared/components/search/Search';
 
-// Styles
-import styles from './eventList.styled';
+// Styled components
+import {
+  Header,
+  IconStyled,
+  SearchContainer,
+  ListContainer,
+} from './eventList.styled';
 
-const EventList = ({
-  icon,
-  name,
-  description,
-  items = getCategoriesById,
-  navigation,
-}: IPops) => {
+const EventList = ({ items = getCategoriesById, navigation }: IPops) => {
+  const { colors } = useTheme();
+
   return (
-    <View>
-      <View style={styles.header}>
-        <Icon
-          style={styles.icon}
-          iconMaterialCommunity="hiking"
-          color="#1D8A99"
-          size={60}
-        />
-        <View>
-          <Title>Sports</Title>
-          <Text>Description</Text>
-        </View>
-      </View>
+    <ScrollView>
+      <View>
+        <Header>
+          <IconStyled
+            iconMaterialCommunity="hiking"
+            color={colors.primary}
+            size={60}
+          />
+          <View>
+            <Title>Sports</Title>
+            <Text>Description</Text>
+          </View>
+        </Header>
 
-      <View style={styles.containerSearch}>
-        <Search />
-      </View>
+        <SearchContainer>
+          <Search />
+        </SearchContainer>
 
-      <View style={styles.containerList}>
-        <FlatList
-          data={getCategoriesById}
-          renderItem={(item) => (
-            <ListItem item={item.item} navigation={navigation} />
-          )}
-          keyExtractor={(item) => item.key}
-        />
+        <ListContainer>
+          <FlatList
+            data={getCategoriesById}
+            renderItem={(item) => (
+              <ListItem item={item.item} navigation={navigation} />
+            )}
+            keyExtractor={(item) => item.key}
+          />
+        </ListContainer>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

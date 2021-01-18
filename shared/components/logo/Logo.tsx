@@ -5,13 +5,13 @@ import { Text, View } from 'react-native';
 import Icon from '../icon/Icon';
 
 // Styles
-import { styles } from './logo.styles';
+import { Container, Title } from './logo.styled';
 
 const Logo = () => (
-  <View style={styles.logoContainer}>
+  <Container>
     <Icon iconMaterial="event" color="#7C77B9" size={40} />
-    <Text style={styles.title}>Events</Text>
-  </View>
+    <Title>Events</Title>
+  </Container>
 );
 
 export default Logo;

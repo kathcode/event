@@ -1,22 +1,23 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import styled from 'styled-components/native';
 
-export default StyleSheet.create({
-  container: {
-    backgroundColor: '#eee',
-  },
-  cardContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    backgroundColor: '#1D8A99',
-    padding: 40,
-  },
-  containerSearch: {
-    marginTop: -45,
-    padding: 10,
-  },
-  containerList: {
-    padding: 10,
-  },
-});
+export const Container = styled.View`
+  background-color: #eee;
+`;
+
+export const CardContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 40px;
+`;
+
+export const SearchContainer = styled.View`
+  margin-top: -45px;
+  padding: 10px;
+`;
+export const ListContainer = styled.View`
+  padding: 10px;
+`;
